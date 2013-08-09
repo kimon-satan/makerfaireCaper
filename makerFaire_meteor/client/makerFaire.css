@@ -1,0 +1,163 @@
+/*---big elements---*/
+
+body {
+    font-family: 'Helvetica Neue', Helvetica, Arial, sans-serif;
+    font-weight: 200;
+    margin: 0px 0px;
+    background: white;
+    padding: 0;
+    -webkit-user-select: none;
+    -khtml-user-select: none;
+    -moz-user-select: none;
+    -o-user-select: none;
+    user-select: none;
+}
+
+#outer {
+	position: absolute;
+	text-align: left;
+    width: 1000px;
+    height: 640px;
+    margin: 30px;    
+}
+
+
+
+h1 {
+	font-size: 40px;
+}
+
+h2 {
+	font-size: 30px;
+}
+
+h3 {
+	font-size: 23px;
+}
+
+p {
+	font-size: 18px;
+	line-height: 23px;
+	margin: 0px;
+}
+
+i {
+	font-size: 20px;
+	margin: 0px;
+}
+
+r {
+  color: #ff0000;
+  font-size: 25px;
+  margin: 0px;
+}
+
+
+
+
+
+input[type='checkbox'] {
+	position: relative;
+    -webkit-appearance:none;
+    width:30px;
+    height:30px;
+    background:white;
+    border-radius:5px;
+    border:2px solid #555;
+}
+
+input[type='checkbox']:checked {
+    background: #abd;
+}
+
+.textInput{
+	position: relative;
+	width: 200px;
+	height:23px;
+	font-size:20px;
+	margin-left: 10px;
+	
+}
+
+.skillLabel2{
+	float: left;
+	margin-top: 4px;
+	min-width: 100px;
+	min-height: 20px;
+
+}
+
+.skillLabel{
+	float: left;
+	min-width: 270px;
+	min-height: 20px;
+	margin-top: 5px;
+
+}
+
+.submit{
+	
+	font-size: 20px;
+	width: 200px;
+	height: 30px;
+	margin: 20px 0; 
+
+}
+
+.score {
+
+ font-size: 16px;
+ margin-top: 5px;
+
+}
+
+#overlay, #overlay_gray{
+     position: absolute;
+     left: 0px;
+     top: 0px;
+     width:480px;
+     height:640px;
+     text-align:center;
+     z-index: 1000;
+}
+
+
+#overlay_gray{
+ 	top: -50px;
+ 	height:800px;
+	background-color: #000000;
+	opacity: 0.75;
+}
+
+
+
+#table-wrapper {
+  position:relative;
+  margin: 40px 0 0 0;
+}
+
+#table-wrapper table {
+  width: 100%;
+  border-collapse: collapse;
+}
+
+#table-wrapper table thead th  {
+  padding: 5px;
+  text-align: left;
+  width:auto;
+  border:1px solid gray;
+  height:30px;
+}
+
+#table-wrapper table tbody td  {
+  height:30px;
+  width:auto;
+  border:1px solid gray;
+  padding: 5px;
+  position: relative;
+}
+
+
+
+
+

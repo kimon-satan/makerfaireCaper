@@ -1,0 +1,196 @@
+<head>
+  <title>makerFaire</title>
+      <link rel="stylesheet" href="makerFaire.css">
+</head>
+
+<body>
+
+	{{#if isSplash}}
+	  {{>frontPage}}
+	{{/if}} 
+
+	{{#if isVisual}}
+	  {{>visuals}}
+	{{/if}} 
+	
+	{{#if isForm}}
+		
+		{{#unless isThanks}}	
+			{{>webForm}}
+		{{/unless}}
+		
+		{{#if isThanks}}
+			{{>thanks}}
+		{{/if}}
+	
+	{{/if}} 
+	
+	
+	{{#if isAdmin}}
+		{{>admin}}
+	{{/if}}
+	
+	
+</body>
+
+<template name="frontPage">
+	<div id="outer">
+<h1>MakerFaire</h1>
+
+	<button class="submit" id="visual">visual</button>
+	<button class="submit" id="form">form</button>
+	<button class="submit" id="admin">admin</button>
+	</div>
+	
+
+</template>
+
+
+
+
+<template name="visuals">
+	<canvas id="canvas1"></canvas>
+	<script src="lib/processing-js-1.4.1/processing-1.4.1.min.js"></script>
+</template>
+
+
+<template name="webForm">
+	<img src="caper_400.png" style ="float: right; margin: 50px"></img>
+	<div id="outer">
+	<div>
+		<h1>A Room Full of Makers</h1>
+		<div class="container">
+		<p>
+		At <b>Caper</b>, we’re curious what skills the visitors to MakerFaire bring. 
+		It doesn’t show on your face, so let’s make it visible with a Maker Code. <br/> <br/> 
+
+		Give each of the skills you have a rating - 1 for learning, 2 for making, 3 for mastery, 
+		or the skills you’re paid to use. We’ve nominated some categories, but we can’t cover everything 
+		- so write in everything else!<br/> <br/> 
+
+		Your data will join everyone else’s to form a record of the skills in the room.<br/> <br/> 
+		Thanks for joining in.</p>
+		</div>
+	</div>
+	
+	<div id="table-wrapper">
+	
+		<table>
+			<thead>
+				<tr>
+					<th>Physical Making</th>
+					
+					<th>Digital Making</th>
+					
+					<th>Electronics</th>
+					
+				</tr>
+			</thead>
+				<tbody>
+				
+				<tr>
+				{{#each row0}}
+					<td><span class="skillLabel">{{this.n}}</span>{{>score}}</td>
+				{{/each}}
+				</tr>
+				<tr>
+				{{#each row1}}
+					<td><span class="skillLabel">{{this.n}}</span>{{>score}}</td>
+				{{/each}}
+				</tr>
+				<tr>
+				{{#each row2}}
+					<td><span class="skillLabel">{{this.n}}</span>{{>score}}</td>
+				{{/each}}
+				</tr>
+				<tr>
+				{{#each row3}}
+					<td><span class="skillLabel">{{this.n}}</span>{{>score}}</td>
+				{{/each}}
+				</tr>
+				
+				<tr>
+				{{#each row4}}
+				<td><span class="skillLabel2">Everything else</span>
+					<input class="textInput" id={{this.id}}>
+					<span class="skillLabel"></span></input>{{>score}}
+				</td>
+				{{/each}}
+				</tr>
+				</tbody>
+		</table>
+	</div>
+	
+	<div>
+	<button class="submit">submit</button>
+	</div>
+ </div>	
+</template>
+
+
+<template name="score">
+	<select class="score" id={{this.id}}>
+		<option value="0">0</option>
+		<option value="1">1</option>
+		<option value="2">2</option>
+		<option value="3">3</option>
+	</select>
+</template>
+
+<template name="admin">
+
+	
+	<div id="outer">
+		<h1>MakerFaire</h1>
+		<h2>Admin Page</h2>
+		<div>
+		<p>Password:</p>
+		<input type="password" class="pw" id="pw"></input>
+		<br/><br/>
+		<button class="submit" id="clear">clear all records</button>
+		<br/>
+		
+		<select class="score" id="numrecords">
+			<option>1</option>
+			<option>5</option>
+			<option>10</option>
+			<option>20</option>
+			<option>100</option>
+			<option>200</option>
+		</select>
+		
+		<button class="submit" id="populate">populate records</button>
+		</div>
+		
+		<r>{{errors}}</r>
+		
+		{{>fileTable}}
+	</div>
+	
+	
+</template>
+
+<template name="fileTable">
+
+	<h2>Download Results to CSV</h2>
+	<div>
+	<button class="create">Create file</button>
+	</div>
+	
+	<div>
+    {{#each files}}
+    <button class="download">Download</button> {{filename}}<br/>
+    {{else}}
+    No file created.
+    {{/each}}
+    </div>
+</template>
+
+
+
+<template name="thanks">
+	<div id="outer">
+	<h1>Thanks !</h1>
+		<button class="submit">continue</button>
+	</div>
+</template>
